@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Route Master Pro Limited | Smart Telematics</title>
+    <style>
+        :root {
+            --srmpl-orange: #F27022;
+            --srmpl-blue: #1A2B3C;
+            --srmpl-black: #0D0D0D;
+            --srmpl-gray: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: var(--white); }
+
+        /* --- Navigation --- */
+        .navbar {
+            background-color: var(--srmpl-blue);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .logo-container { display: flex; align-items: center; }
+        .logo-text { color: white; font-size: 22px; font-weight: 800; letter-spacing: 1px; }
+        .logo-text span { color: var(--srmpl-orange); }
+
+        .nav-links { list-style: none; display: flex; gap: 25px; align-items: center; }
+        .nav-links a { color: #cbd5e0; text-decoration: none; font-size: 15px; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--srmpl-orange); }
+
+        /* --- Dropdown --- */
+        .dropdown { position: relative; }
+        .dropbtn {
+            background-color: var(--srmpl-orange);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--srmpl-black);
+            min-width: 260px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            border-radius: 6px;
+            margin-top: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        .dropdown-content a {
+            color: #eee;
+            padding: 14px 20px;
+            display: block;
+            font-size: 14px;
+            border-bottom: 1px solid #222;
+        }
+        .dropdown-content a:hover { background-color: var(--srmpl-blue); color: var(--srmpl-orange); }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(26, 43, 60, 0.8), rgba(13, 13, 13, 0.8)), 
+                        url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; color: #cbd5e0; }
+        .btn-main {
+            background-color: var(--srmpl-orange);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn-main:hover { background-color: #d95a10; transform: translateY(-2px); }
+
+        /* --- Modules Section --- */
+        .section-title { text-align: center; padding: 60px 0 20px; font-size: 2rem; color: var(--srmpl-blue); }
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 40px 8%;
+            background-color: var(--srmpl-gray);
+        }
+        .module-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            border-top: 5px solid var(--srmpl-blue);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .module-card:hover { transform: translateY(-10px); border-top-color: var(--srmpl-orange); }
+        .module-card h3 { margin: 15px 0; color: var(--srmpl-black); }
+        .module-card p { font-size: 0.9rem; color: #666; }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--srmpl-black);
+            color: white;
+            padding: 50px 8% 20px;
+            text-align: center;
+        }
+        .footer-logo { font-size: 18px; margin-bottom: 20px; opacity: 0.8; }
+        .footer-logo span { color: var(--srmpl-orange); }
+        .copyright { margin-top: 30px; font-size: 12px; color: #555; border-top: 1px solid #222; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo-text">SAFE ROUTE MASTER<span> PRO</span></div>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="#">Fleet Tracking</a></li>
+            <li><a href="#">School Safety</a></li>
+            <li><a href="#">Workshop</a></li>
+            <li class="dropdown">
+                <button class="dropbtn">Client Login &#9662;</button>
+                <div class="dropdown-content">
+                    <a href="http://195.26.253.172/:8082">🚗 Telematics Portal</a>
+                    <a href="#">🚌 School Manager</a>
+                    <a href="#">🔧 Auto Repair System</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Safety in Every Signal</h1>
+        <p>Advanced telematics and fleet management solutions designed for reliability, scalability, and absolute control. Powered by SRMPL.</p>
+        <a href="#contact" class="btn-main">Get Started Today</a>
+    </header>
+
+    <h2 class="section-title">Our Solutions</h2>
+    <div class="modules-grid">
+        <div class="module-card">
+            <h3>Vehicle Tracking</h3>
+            <p>Real-time multiple devices support instant alerts and geofencing.</p>
+        </div>
+        <div class="module-card">
+            <h3>School Transport</h3>
+            <p>Ensure student safety with specialized routing and parent notifications.</p>
+        </div>
+        <div class="module-card">
+            <h3>Auto Repair Pro</h3>
+            <p>Comprehensive workshop management from job cards to inventory.</p>
+        </div>
+        <div class="module-card">
+            <h3>Advanced Telematics</h3>
+            <p>Fuel monitoring, driver behavior analysis, and engine diagnostics.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">SAFE ROUTE MASTER <span>PRO</span> LIMITED</div>
+        <p>Your partner in logistics safety and digital automation.</p>
+        <div class="copyright">
+            &copy; 2024 Safe Route Master Pro Limited. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
