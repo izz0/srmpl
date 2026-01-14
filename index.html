@@ -37,8 +37,15 @@
         .nav-links a { color: #cbd5e0; text-decoration: none; font-size: 15px; font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: var(--srmpl-orange); }
 
-        /* --- Dropdown --- */
-        .dropdown { position: relative; }
+        /* --- FIXED DROPDOWN LOGIC --- */
+        .dropdown { 
+            position: relative; 
+            display: inline-block;
+            /* This padding acts as a 'bridge' so the menu doesn't disappear when moving the mouse down */
+            padding-bottom: 20px; 
+            margin-bottom: -20px; 
+        }
+
         .dropbtn {
             background-color: var(--srmpl-orange);
             color: white;
@@ -50,33 +57,55 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: 0.3s;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
             right: 0;
+            top: 100%; /* Sits perfectly below the nav bar */
             background-color: var(--srmpl-black);
             min-width: 260px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
             border-radius: 6px;
-            margin-top: 10px;
             overflow: hidden;
             border: 1px solid #333;
+            z-index: 1001;
+            /* Smooth Fade Animation */
+            animation: fadeIn 0.3s ease;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .dropdown-content a {
             color: #eee;
             padding: 14px 20px;
             display: block;
             font-size: 14px;
+            text-decoration: none;
             border-bottom: 1px solid #222;
+            transition: 0.2s;
         }
-        .dropdown-content a:hover { background-color: var(--srmpl-blue); color: var(--srmpl-orange); }
-        .dropdown:hover .dropdown-content { display: block; }
+
+        .dropdown-content a:hover { 
+            background-color: var(--srmpl-blue); 
+            color: var(--srmpl-orange); 
+            padding-left: 25px;
+        }
+
+        /* The hover trigger is now on the container .dropdown */
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
 
         /* --- Hero Section --- */
         .hero {
             height: 80vh;
-            background: linear-gradient(rgba(26, 43, 60, 0.8), rgba(13, 13, 13, 0.8)), 
+            background: linear-gradient(rgba(26, 43, 60, 0.85), rgba(13, 13, 13, 0.85)), 
                         url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=2070');
             background-size: cover;
             background-position: center;
@@ -167,30 +196,29 @@
     <div class="modules-grid">
         <div class="module-card">
             <h3>Vehicle Tracking</h3>
-            <p>Real-time multiple devices support instant alerts and geofencing.</p>
+            <p>Real-time GPS monitoring for your Helios T42 units with sub-second accuracy.</p>
         </div>
         <div class="module-card">
             <h3>School Transport</h3>
-            <p>Ensure student safety with specialized routing and parent notifications.</p>
+            <p>Ensure student safety with specialized routing and real-time parent alerts.</p>
         </div>
         <div class="module-card">
             <h3>Auto Repair Pro</h3>
-            <p>Comprehensive workshop management from job cards to inventory.</p>
+            <p>Modernize your garage with job card management and inventory tracking.</p>
         </div>
         <div class="module-card">
             <h3>Advanced Telematics</h3>
-            <p>Fuel monitoring, driver behavior analysis, and engine diagnostics.</p>
+            <p>Deep data analytics including fuel monitoring and driver behavior scoring.</p>
         </div>
     </div>
 
     <footer>
         <div class="footer-logo">SAFE ROUTE MASTER <span>PRO</span> LIMITED</div>
-        <p>Your partner in logistics safety and digital automation.</p>
+        <p>Intelligent Logistics & Automation Experts.</p>
         <div class="copyright">
             &copy; 2024 Safe Route Master Pro Limited. All Rights Reserved.
         </div>
     </footer>
 
 </body>
-
 </html>
